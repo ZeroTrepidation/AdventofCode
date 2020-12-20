@@ -46,7 +46,14 @@ public class d4part2 {
 		}
 
 	}
-
+	
+	/*Method which is provided with a string of specific fields that checks entire string for the existence and validity of the fields
+	*in hindsight should have just made a passport class most likely and had a boolean isValid field
+	*
+	* Gets passed a stack of strings which all contribute to one specific passport
+	* Returns a boolean if the passport is valid or not
+	*
+	*/
 	private static boolean passportValidator(Stack<String> passportStrings) {
 
 		String byr = null, iyr = null, eyr = null, hgt = null, hcl = null, ecl = null, pid = null, cid = null;
@@ -145,7 +152,7 @@ public class d4part2 {
 	}
 
 	private static boolean hgtCheck(String value) {
-		System.out.println(value);
+		//System.out.println(value);
 		if (value.contains("cm")) {
 			//System.out.println(value);
 			int height = Integer.parseInt(value.replaceAll("\\D", ""));
@@ -175,7 +182,7 @@ public class d4part2 {
 				return true;
 			}
 		}
-		System.out.println(value + "isfalse");
+		//System.out.println(value + "isfalse");
 
 		return false;
 	}
@@ -184,17 +191,17 @@ public class d4part2 {
 		if (value.matches("(amb|blu|brn|gry|grn|hzl|oth)")) {
 			return true;
 		}
-		System.out.println(value + "isfalse");
+		//System.out.println(value + "isfalse");
 
 		return false;
 	}
 
 	private static boolean pidCheck(String value) {
 		if (value.length() == 9) {
-			if (value.matches("^0*[1-9]+"))
+			if (value.matches("^0*[0-9]+"))
 				return true;
 		}
-		System.out.println(value + "isfalse");
+		//System.out.println(value + "isfalse");
 		return false;
 	}
 
